@@ -10,7 +10,7 @@ The main idea of this project is to present the notion of zero-knowledge proofs 
 
 Let's start with a simple voting scheme called "minivoting" for yes/no questions. The scheme consists of one "trusted" authority, a public bulletin board to which everyone (authority and voters) can post messages, and some number of voters. The encryption scheme used is the "Exponential ElGamal", which is a homomorphic assymetric encryption.
 
-**Setup:** The authority creates a public key / secret key pair `(pk, sk)` using the scheme's key generation algorithm and posts the `pk` to the bulletin board. 
+**Setup:** The authority creates a public, secret key pair `(pk, sk)` using the scheme's key generation algorithm and posts the `pk` to the bulletin board. 
 
 ```python
 def generate_keys():
