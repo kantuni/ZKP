@@ -4,7 +4,7 @@ Reference: [Cryptographic Voting – A Gentle Introduction](https://eprint.iacr.
 
 ### Abstract
 
-The main idea of this project is to present the notion of zero-knowledge proofs, and their use in cryptographic voting. We will start with a primitive voting scheme called "minivoting" that has few security issues. We will then create a new scheme (a variant of the "helios" scheme) based on the "minivoting" that uses a concept of zero-knowledge proofs to solve these issues. We will see the implementation of two protocols that ensure zero-knowledge: Chaum-Pedersen and DCP (Disjunctive Chaum-Pedersen).
+The main idea of this project is to present the notion of zero-knowledge proofs and their use in cryptographic voting. We will start with a primitive voting scheme called "minivoting" that has few security issues. We will then create a new scheme (a variant of the "helios" scheme) based on the "minivoting" that uses a concept of zero-knowledge proofs to solve these issues. We will see the implementation of two protocols that ensure zero-knowledge: Chaum-Pedersen and DCP (Disjunctive Chaum-Pedersen).
 
 ### Introduction
 
@@ -30,7 +30,7 @@ function encrypt(pk, m) {
 }
 ```
 
-**Tallying:** The authority adds all ballots using the scheme's add algorithm, decrypts the sum using the scheme's decryption algorithm, and outputs the result of the voting.
+**Tallying:** The authority add all ballots using the scheme's add algorithm, decrypts the sum using the scheme's decryption algorithm, and outputs the result of the voting.
 
 ```python
 def add(ciphers):
@@ -57,13 +57,13 @@ def decrypt(sk, a, b):
 "Minivoting" is not secure, as participants can misbehave.
 
 1. A voter can encrypt an invalid (not 0 or 1) vote, which will give him an unfair advantage.
-2. The authority decrypted correctly, i.e. announced the correct result.
+2. The authority can decrypt incorrectly, i.e. announce a fake result.
 
-There's also an issue with just having one "trusted" authority, which can be solved by using the threshold encryption scheme which uses n authorities instead of one. This way if at least one of the authorities is honest, the rest of them cannot misbehave. (threshold encryption is outside of the course of this paper)
+There's also an issue with just having one "trusted" authority, which can be solved by using the threshold encryption scheme which uses n authorities instead of one. This way if at least one of the authorities is honest, the rest of them cannot misbehave. (threshold encryption is outside of the course of this project)
 
 ### Zero-Knowledge Proofs
 
-Luckily, there is a solution to both these issues – namely, zero-knowledge proofs.
+Luckily, there is a solution to both of these issues – namely, zero-knowledge proofs.
 
 > In cryptography, a **zero**-**knowledge** proof or **zero**-**knowledge** protocol is a method by which one party (the prover) can prove to another party (the verifier) that a given statement is true, without conveying any information apart from the fact that the statement is indeed true.
 
@@ -95,7 +95,7 @@ function checkDecryption(pk, cipher, proof) {
 
 #### DCP (Disjunctive Chaum-Pedersen's) Protocol
 
-Finally, to prove that a voter encrypted a valid vote we will use the modification of Chaum-Pedersen's protocol - namely, DCP.
+Finally, to prove that a voter encrypted a valid vote (either 0 or 1) we will use the modification of Chaum-Pedersen's protocol - namely, DCP.
 
 ```js
 function validVoteProof(pk, v, a, b, r) {
@@ -159,5 +159,5 @@ def verify_vote(pk, cipher, proof):
     return s1 and s2 and s3 and s4
 ```
 
-This is it. I hope you enjoyed it. 
+This is it. I hope you enjoyed it.  
 Please feel free to open an issue or a pull request.
