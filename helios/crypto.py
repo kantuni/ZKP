@@ -48,7 +48,7 @@ def correct_decryption_proof(pk, sk, a, b):
     return u, v, s, d
 
 
-def check_vote(pk, cipher, proof):
+def verify_vote(pk, cipher, proof):
     a, b = cipher
     a0, a1, b0, b1, c0, c1, r0, r1 = proof
 

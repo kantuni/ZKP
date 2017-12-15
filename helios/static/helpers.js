@@ -35,7 +35,7 @@ function customHash(values) {
   return h;
 }
 
-function checkDecryption(pk, cipher, proof) {
+function verifyDecryption(pk, cipher, proof) {
   let [a, b] = cipher;
   let [u, v, s, d] = proof;
   let c = customHash([pk, a, b, u, v]);

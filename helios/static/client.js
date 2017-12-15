@@ -66,7 +66,7 @@ document.getElementById('tally').addEventListener('click', e => {
     .then(data => {
       console.log(data);
       let {cipher, proof} = data;
-      if (!checkDecryption(pk, cipher, proof)) {
+      if (!verifyDecryption(pk, cipher, proof)) {
         alert("The decryption proof is not valid.");
       }
     })

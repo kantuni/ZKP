@@ -39,7 +39,7 @@ def ballot():
     cipher = data['cipher']
     proof = data['proof']
 
-    if crypto.check_vote(pk, cipher, proof):
+    if crypto.verify_vote(pk, cipher, proof):
         with open('ballots.csv', 'a') as file:
             cipher = [str(s) for s in cipher]
             proof = [str(s) for s in proof]
