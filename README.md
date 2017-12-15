@@ -1,2 +1,1 @@
-# zkp
-Zero Knowledge Proofs
+# Zero Knowledge Proofs
