@@ -76,7 +76,7 @@ function validVoteProof(pk, v, a, b, r) {
     b1 = pow(pk, r1, p);
 
     c = customHash([pk, a, b, a0, b0, a1, b1]);
-    // TODO: There is a problem with notations in the paper. I included this in the email.
+    // TODO: There is a problem with notations in the paper.
     // c1 = Math.abs(c0 - c);
     c1 = (q + (c0 - c) % q) % q;
 
