@@ -7,7 +7,7 @@ let g, p, q, pk;
 let board, ballots;
 
 
-window.addEventListener('load', () => {
+window.onload = () => {
   board = document.getElementById('board');
   let request = new Request('/setup', {
     method: 'POST'
