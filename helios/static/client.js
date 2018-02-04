@@ -23,7 +23,7 @@ window.onload = () => {
     .catch(error => {
       console.error(error);
     });
-});
+};
 
 document.getElementById('send').addEventListener('click', e => {
   e.preventDefault();
