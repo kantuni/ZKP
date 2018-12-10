@@ -159,5 +159,5 @@ def verify_vote(pk, cipher, proof):
     return s1 and s2 and s3 and s4
 ```
 
-This is it. I hope you enjoyed it.  
+This is it. I hope you have enjoyed it.  
 Please feel free to open an issue or a pull request.
