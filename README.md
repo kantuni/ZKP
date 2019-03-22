@@ -4,11 +4,11 @@ Reference: [Cryptographic Voting – A Gentle Introduction](https://eprint.iacr.
 
 ### Abstract
 
-The main idea of this project is to present the notion of zero-knowledge proofs and their use in cryptographic voting. We will start with a primitive voting scheme called "minivoting" that has few security issues. We will then create a new scheme (a variant of the "helios" scheme) based on the "minivoting" that uses a concept of zero-knowledge proofs to solve these issues. We will see the implementation of two protocols that ensure zero-knowledge: Chaum-Pedersen and DCP (Disjunctive Chaum-Pedersen).
+The main idea of this project is to present the notion of zero-knowledge proofs and their use in cryptographic voting. We will start with a primitive voting scheme called "mini-voting" that has few security issues. We will then create a new scheme (a variant of the "helios" scheme) based on the "mini-voting" that uses a concept of zero-knowledge proofs to solve these issues. We will see the implementation of two protocols that ensure zero-knowledge: Chaum-Pedersen and DCP (Disjunctive Chaum-Pedersen).
 
 ### Introduction
 
-Let's start with a simple voting scheme called "minivoting" for yes/no questions. The scheme consists of one "trusted" authority, a public bulletin board to which everyone (authority and voters) can post messages, and some number of voters. The encryption scheme used is the "Exponential ElGamal", which is a homomorphic assymetric encryption.
+Let's start with a simple voting scheme called "mini-voting" for yes/no questions. The scheme consists of one "trusted" authority, a public bulletin board to which everyone (authority and voters) can post messages, and some number of voters. The encryption scheme used is the "Exponential ElGamal", which is a homomorphic assymetric encryption.
 
 **Setup:** The authority creates a (public key, secret key) pair `(pk, sk)` using the scheme's key generation algorithm and posts the `pk` to the bulletin board. 
 
@@ -54,7 +54,7 @@ def decrypt(sk, a, b):
 
 ### Security issues
 
-"Minivoting" is not secure, as participants can misbehave.
+"Mini-voting" is not secure, as participants can misbehave.
 
 1. A voter can encrypt an invalid (not 0 or 1) vote, which will give him an unfair advantage.
 2. The authority can decrypt incorrectly, i.e. announce a fake result.
